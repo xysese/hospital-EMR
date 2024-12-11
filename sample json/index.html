@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main_style.css" type="text/css">
+    <link rel="icon" type="img/x-icon" href="./images/favicon.png">
+    <script src="/jquery.min.js"></script>
+    <script src="/main.js"></script>
+   <script src="/region_function.js"></script>
+   <script src="/min.jschart.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <div class="sidebar">
+        <div class="sidebar-label">
+            <h3 style="color:#e7e6e6;padding: 5px;">dashboard</h3>
+        </div>
+        <div class="sticky-sidebar">
+<div class="sidebar-menu"><img src="./images/patient.png" alt=""><a href="">patient</a></div>
+        <div class="sidebar-menu"><img src="./images/outpatient.png"><a href="">outpatient</a></div>
+        <div class="sidebar-menu"><img src="./images/ambulance.png" alt=""><a href="">emergency</a></div>
+        <div class="sidebar-menu"><img src="./images/admission.png" alt=""><a href="">admission</a></div>
+        <div class="sidebar-menu"><img src="./images/doctor.png" alt=""><a href="">doctor</a></div>
+    </div>
+</div>
+    <div class="main-content">
+        <div class="main-content-header">
+            <div class="header-menu-title" id="search"><input type="text"placeholder="search here...." name="" id=""></div>
+            <div class="header-menu">
+                <i>IHMRS</i>
+               
+            </div>
+            
+        </div>
+        <div class="form-menu">
+            <div class="title-menu"><a href="">MENU</a></div>
+            <div class="button-title">
+                <a href="">ADD</a>
+            </div>
+        </div>
+        <div class="form-table">
+            <table>
+                <tr>
+                <th>hospital number</th>
+                <th>name</th>
+                <th>address</th>
+                <th>age/gender/cs</th>
+                <th>action</th>
+                </tr>
+                <tr>
+                    <td>0111</td>
+                    <td>john doe</td>
+                    <td>manila philippines</td>
+                    <td>20/m/s</td>
+                            <td>
+                        <select name="" id="">
+                            <option value="">action</option>
+                            <option value="">edit</option>
+                            <option value="">records</option>
+                            <option value="">edit</option>
+                        </select>
+                    </td>
+             </tr>
+             <tr>
+                <td>0111</td>
+                <td>john doe</td>
+                <td>manila philippines</td>
+                <td>20/m/s</td>
+                        <td>
+                            <label for=""></label>
+                    <select name="" id="">
+                        <option value="">action</option>
+                        <option value="">edit</option>
+                        <option value="">records</option>
+                        <option value="">edit</option>
+                    </select>
+                </td>
+         </tr>
+            </table>
+        </div>
+    <div class="form-center">
+    <div class="form-center-title">
+        <h3>patient details</h3>
+    </div>
+    <div class="form-center-wrap">
+    <div class="form-control-primary">
+        <div class="form-control-input">
+            <label for="lastname">last name</label>
+            <input type="text" name="lastname"  autocomplete="off" placeholder="dela cruz">
+        </div>
+        <div class="form-control-input">
+            <label for="firstname">first name</label>
+            <input type="text" name="firstname"  autocomplete="off" placeholder="juan">
+        </div>
+        <div class="form-control-input">
+            <label for="middlename">middle name</label>
+            <input type="text" name="middlename"  autocomplete="off" placeholder="dela cruz">
+        </div>
+        <div class="form-control-input">
+            <label for="suffix">suffix</label>
+            <select name="suffix" id="">
+                <option value="">--select--</option>
+                <option value="">jr</option>
+                <option value="">sr</option>
+                <option value="">ii</option>
+                <option value="">iii</option>
+                <option value="">iv</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-control-secondary">
+        <div class="form-control-input2">
+            <label for="birthdate">birthdate</label>
+           <input type="text" name="birthdate" placeholder="mm/dd/yyyy">
+          
+        </div>
+        <div class="form-control-input2">
+            <label for="gender">gender</label>
+           <select name="gender" id="">
+                <option value="">--select--</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+            </select>
+
+        </div>
+        <div class="form-control-input2">
+            <label for="civilstatus">civil status</label>
+            <select name="civilstatus" id="">
+                <option value="single">single</option>
+                <option value="married">married</option>
+                <option value="widow">widow</option>
+                <option value="separated">separated</option>
+            </select>
+        </div>
+        <div class="form-control-input2">
+            <label for="religion">religion</label>
+            <select name="religion" id="">
+                <option value="">--select--</option>
+                <option value="roman catholic">catholic</option>
+                <option value="jehova witnessess">jehova</option>
+                <option value="iglesia ni cristo">iglesia ni cristo</option>
+                <option value="born again">born again</option>
+                <option value="aglipayano">aglipayano</option>
+                <option value="dating daan">dating daan</option>
+                <option value="church of christ">church of christ</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-control-third">
+        <div class="form-control-input3">
+            <label for="region">region</label>
+            <select id="regionSelect" name="region" onchange="loadProvinces(); updateRegionText(); clearFields();">           
+                 <option value="">Select Region</option>
+                    </select>
+        </div>
+        <div class="form-control-input3">
+            <label for="provinceSelect">Province</label>
+            <select id="provinceSelect" name="province" onchange="loadCities(); updateProvinceText(); clearFields();">            <option value="">Select Province</option>
+            </select>
+        </div>
+        <div class="form-control-input3">
+            <label for="citySelect">City</label>
+            <select id="citySelect" name="city" onchange="loadBarangays(); updateCityText();clearFields();">            <option value="">Select City</option>
+            </select>
+        </div>
+        <div class="form-control-input3">
+            <label for="barangaySelect">Barangay</label>
+            <select id="barangaySelect" name="barangay" onchange="updateBarangayText();clearFields();">
+                <option value="">Select Barangay</option>
+            </select>
+    </div>
+  
+        <input type="hidden" id="region_value" value="" onkeyup="empty_cell()">
+    <input type="hidden" id="province_value" value="">
+    <input type="hidden" id="mun_value" value="">
+    <input type="hidden" id="barangay_value">
+    </div>
+
+    <div class="form-control-fourth">
+        <div class="form-control-input4">
+            <label for="contact">contact number</label>
+            <input type="tel" placeholder="09152465566" name="contact" pattern="[0]{1}[9]{1}[0-9]{9}" value maxlength="11">
+        </div>
+    </div>
+</div>
+</div>
+   <!--breadcrumbs-->
+   <div class="bc-control-menu">
+    <div class="bc-menu-list"><a href="">vital sign</a></div>
+    <div class="bc-menu-list"><a href="">chief complaint</a></div>
+    <div class="bc-menu-list"><a href="">medical history</a></div>
+    <div class="bc-menu-list"><a href="">medication</a></div>
+    <div class="bc-menu-list"><a href="">laboratories</a></div>
+    <div class="bc-menu-list"><a href="">radiology</a></div>
+</div>
+
+<!--VITAL SIGNS PANEL-->
+<div class="vs-form-control">
+    <div class="vs-title-box">
+        <a href="">patient vital sign form</a>
+        </div>
+        <div class="vs-form-box">
+            <div class="vs-form-box-input">
+                <label for="bp">blood pressure</label>
+                <input type="text" name="bp" placeholder="ex. 120/80">
+            </div>
+            <div class="vs-form-box-input">
+                <label for="o2">O2 saturation</label>
+                <input type="text" name="o2" placeholder="98%">
+            </div>
+            <div class="vs-form-box-input">
+                <label for="pr">pulse rate</label>
+                <input type="text" name="pr" placeholder="70">
+            </div>
+            <div class="vs-form-box-input">
+                <label for="rr">respiration rate</label>
+                <input type="text" name="rr" placeholder="22">
+            </div>
+            <div class="vs-form-box-input">
+                <label for="temperature">temperature</label>
+                <input type="text" name="temperature" placeholder="36.5">
+            </div>
+            <div class="vs-form-box-input">
+                <label for="wt">weight</label>
+                <input type="text" name="wt"placeholder="kilograms">
+            </div>
+            <div class="vs-form-box-input">
+                <label for="ht">height</label>
+                <input type="text" name="height" placeholder="cm">
+            </div>
+            <div class="vs-form-box-input">
+                <label for="bmi">BMI</label>
+                <input type="text" name="bmi" placeholder="24.5">
+            </div>
+        </div>
+</div>
+</div>
+</body>
+</html>
